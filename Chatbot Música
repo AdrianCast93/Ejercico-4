@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- Saludo inicial -->
+
+<category>
+    <pattern>Hola soy *</pattern>
+    <think><set name="nombre"><star/></set></think>
+
+    <template>
+        Hola <star> </star>, yo soy logi, un amante de la música, preguntame 
+        lo que quieras sobre ella. 
+        </template>
+    </category>
+<category>
+    <pattern>Hola</pattern>
+    <template>
+        Hola soy logi, un amante de la música, preguntame 
+        lo que quieras sobre ella.
+    </template>
+    </category>
+<!-- Busquedas -->
+<category>
+    <pattern>que es * </pattern>
+    <template>
+    <think><set name="cosa"><star/></set></think>
+    
+        la respuesta a tu pregunta (que es <star/>) esta aquí: 
+        <button>
+            <text>Música</text>
+            <url>https://es.wikipedia.org/wiki/<star/></url>
+        </button>
+    </template>
+    </category>
+
+<category>
+    <pattern>que es una * </pattern>
+    <template>
+        la respuesta a tu pregunta (que es una <star/>) esta aquí: 
+        <button>
+            <text>Música</text>
+            <url>https://es.wikipedia.org/wiki/<star/></url>
+        </button>
+    </template>
+</category>
+
+<category>
+    <pattern>que es la * </pattern>
+    <template>
+        la respuesta a tu pregunta (que es la <star/>) esta aquí: 
+        <button>
+            <text>Música</text>
+            <url>https://es.wikipedia.org/wiki/<star/></url>
+        </button>
+        
+    </template>
+</category>
+
+
+<category>
+    <pattern>Cuéntame mas</pattern>
+    <template>
+        <condition name="cosa">
+         <li value="*"><srai>que es <get name="cosa"/></srai></li> 
+         <li>Sobre que?</li>
+        </condition>
+    </template>
+</category>
+
+    
+
+<category>
+    <pattern></pattern>
+    <template>Te estas saliendo del tema de la música</template>
+</category>
+ <category>
+     <pattern>cual es tu canción favorita </pattern>
+     <template>Sweet child o mine de los Guns n Roses</template>
+     
+ </category>
+ <category>
+     <pattern>Adios </pattern>
+     <template>Adios, que tenga un buen dia! <star/></template>
+ </category>
+</aiml>
