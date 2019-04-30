@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+
+<category>
+    <pattern>Cuéntame sobre * </pattern>
+    <template>
+        <think><set name="eso"><star/></set></think>
+        Aquí tiene información sobre <formal><star/></formal>.
+        <button>
+            <text>Click aquí</text>
+            <url>https://es.wikipedia.org/wiki/<star/></url>
+        </button>
+    </template>
+</category>
+
+<category>
+<pattern>Muestrame un mapa de *</pattern>   
+<template>
+    Aquí tiene un mapa de <star/>
+    <button>
+        <text>Click aquí</text>
+        <url>https://www.google.com/maps/place/</url>
+    </button>
+</template>
+</category>
+
+<category>
+    <pattern>Que tiempo hace en *</pattern>
+    <template>
+        Espero que haya un buen dia en <star></star>
+        <button>
+            <text>Click Aquí</text>
+            <url>https://www.eltiempo.es/buscar?q=<star/></url>
+        </button>
+    </template>
+    
+</category>
+
+<category>
+    <pattern>Cuéntame sobre eso </pattern>
+    <template>
+        <condition name="eso">
+            <li value="*"><srai> Cuéntame sobre <get name="eso"/></srai></li>
+            <li>¿Que hable de?</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>Muestrame un mapa de ahí</pattern>
+    <template>
+        <condition name ="eso">
+            <li value="*"><srai>Muestrame un mapa de <get name="eso"/></srai></li>
+            <li>¿EL mapa de?</li>
+            
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>Que tiempo hace allí</pattern>
+    <template>
+        <condition name="eso">
+            <li value="*"><srai>Que tiempo hace en <get name="eso"></get></srai></li>
+            <li>¿En donde?</li>
+        </condition>
+    </template>
+    
+</category>
+
+<category>
+    <pattern>*</pattern>
+  
+    <template>
+        <srai>Cuéntame sobre<star/></srai>
+    </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+   
+    <template>
+        <srai>Muestrame un mapa de <star/></srai>
+    </template>
+</category>
+
+<category>
+    <pattern>*</pattern>
+    
+    <template>
+        <srai>Que tiempo hace en <star/></srai>
+    </template>
+</category>
+
+
+</aiml>
